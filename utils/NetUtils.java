@@ -1,4 +1,3 @@
-package com.bliss.yang.signingapplication.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
