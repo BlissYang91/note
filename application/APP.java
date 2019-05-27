@@ -59,11 +59,37 @@ public class App extends BaseApplication {
         MoxieSDK.init(this);// 摩羯座
     }
 
+    /**
+     * 设置全局的下拉刷新和上拉加载
+     */
+    static {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+            @Override
+            public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
+                return new BookRefreshHeader(context);
+            }
+        });
+        SmartRefreshLayout.setDefaultRefreshFooterCreater(new DefaultRefreshFooterCreater() {
+            @Override
+            public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
+                return new BookRefreshFooter(context);
+            }
+        });
+    }
+
+    // 各个平台的配置，建议放在全局Application或者程序入口
+    {
+        PlatformConfig.setWeixin("wx642f79d7b199d92", "9c1a6f1794ca29a3f13b311f64eb1d");
+        // PlatformConfig.setSinaWeibo("226579437", "daa75d1adfc493351f5562e7392796c8",
+        // "http://as.baidu.com/software/22332853.html");//http://sns.whalecloud.com
+        // PlatformConfig.setQQZone("1106419560", "swXcHO0gURSNRvPW");
+    }
+
     private void initUM() {
         // 友盟统计
         UMConfigure.setLogEnabled(true);
         // UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "");
-        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "73abd58e3566d3393ee9b185ccfb96f5");
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "73abd58e35d3393ee9b185ccfb96f5");
         MobclickAgent.openActivityDurationTrack(false);
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
 
