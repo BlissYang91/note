@@ -1,4 +1,0 @@
-- [x] 查看错误信息：
-- gradlew compileDebugSources
-- [x] 查看依赖
-- gradlew :app:dependencies
