@@ -107,4 +107,30 @@ public class ToastUtil {
         }
     }
 
+ /**
+     * 自定义toast布局
+     * @param context
+     * @param result
+     */
+    public static void showToastResult(Context context, boolean result){
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_face_layout,null);
+        ImageView imageView = view.findViewById(R.id.iv_face_allow);
+        TextView textView = view.findViewById(R.id.tv_face_result);
+        if (result){
+            imageView.setImageResource(R.mipmap.access);
+            textView.setText("认证通过！");
+            textView.setTextColor(Color.GREEN);
+        }else {
+            imageView.setImageResource(R.mipmap.not_access);
+            textView.setText("未授权！");
+            textView.setTextColor(Color.RED);
+        }
+        Toast toast = new Toast(context);
+        toast.setView(view);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.show();
+   }
+
+
 }
