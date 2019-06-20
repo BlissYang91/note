@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff">
+    <TextView
+        android:id="@+id/tv_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="保存到相册"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:background="@drawable/cornerwhitetop"
+        android:textColor="@android:color/background_dark"/>
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@android:color/darker_gray"/>-->
+
+    <TextView
+        android:id="@+id/tv_take_pic"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text=""
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:textColor="@android:color/background_dark"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:alpha="0.8"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="取消"
+        android:background="@drawable/cornerbuttomwhite"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@android:color/background_dark"/>
+</LinearLayout>
