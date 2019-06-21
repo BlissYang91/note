@@ -61,6 +61,7 @@ public class App extends BaseApplication {
 
     /**
      * 设置全局的下拉刷新和上拉加载
+     * 防止内存泄漏
      */
     static {
         SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
