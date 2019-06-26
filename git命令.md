@@ -44,6 +44,7 @@
 > git add .
 2. 提交刚刚添加的文件,并且必须写一句提交信息文本
 > git commit -m ""
+> git commit -am "a表示add"
 
 3.推送到远程仓库
 > git push -u origin master
