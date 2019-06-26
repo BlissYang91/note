@@ -42,4 +42,4 @@ npm run dev
 npm run build
 ```
 
-![image](D:文档/vue.png)
+![image](https://note.youdao.com/yws/api/personal/file/FC21D29897FF426A9D4A04B30F4EF28C?method=download&shareKey=541f8364328ea359b40369cdce0e65de)
