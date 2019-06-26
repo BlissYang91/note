@@ -21,6 +21,13 @@
 
 ### 查看本地已有的分支
 > git branch
+> git branch -a 查看所有分支(包括远程分支)
+### 查看分支远程分支
+> git branch -r
+### 删除远程分支 
+> git push origin --delete 分支名
+### 删除本地分支 
+>git branch -d dev
 ### 本地检出一个新的分支并推送到远程仓库
 - 创建本地分支,执行该指令后，会在本地创建一个新分支，该分支是从当前分支上检出的，所以所有文件内容都和当前分支一模一样，这是正常的。创建成功后，将自动切换至新分支上。
 >git checkout -b 新分支名
@@ -55,3 +62,18 @@
 - git show v0.1.2
 - [x] 删除标签
 -  git tag -d v0.1.2
+### git merge合并分支
+> 将分支 feature 合并到分支 master
+1. git checkout master
+2. git merge feature
+>只处理一次冲突,引入了一次合并的历史记录，合并后的所有 commit 会按照提交时间从旧到新排列
+所有的过程信息更多，可能会提高之后查找问题的难度
+### git rebase合并操作
+>把feture分支rebase到maser之后，就是相对于master进行变更
+1. 切换到feture分支
+2. 在feture分支上 git rebase
+>改变当前分支从 master 上拉出分支的位置
+没有多余的合并历史的记录，且合并后的 commit 顺序不一定按照 commit 的提交时间排列
+可能会多次解决同一个地方的冲突（有 squash 来解决）
+更清爽一些，master 分支上每个 commit 点都是相对独立完整的功能单元
+
