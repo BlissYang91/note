@@ -7,6 +7,12 @@
   2. git push -u origin master
 
   ---
+
+  ### 全局配置
+
+> git config --global user.name [username]
+> git config --global user.email [email]
+
 ### 从远端clone项目到本地
 > git clone 远端地址
 ### 从远端拉取分支到本地
