@@ -14,6 +14,22 @@
  1. npm install --global vue-cli
  2. 查看 vue 版本
  vue --version
+ #### vue创建项目：
+vue create 项目名称
+或者：vue ui
+ #### 运行vue项目
+ 1.  切换到目录  $ cd hello-vue
+ 2.  $ npm run serve 
+
+ 1. 切换到要创建项目的路径下，hello-vue 是项目名称，小写
+ >vue create hello-vue 
+
+ #### 升级vue
+ 1. npm uninstall -g vue-cli
+ 2. npm install -g @vue/cli
+
+ ### 调试单个vue文件
+ vue serve demo.vue
 
 #### 安装webpack
 1. npm install -g webpack

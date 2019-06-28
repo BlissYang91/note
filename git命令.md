@@ -4,9 +4,13 @@
 ### 如何解决failed to push some refs to git
     > 刚从GitHub关联克隆下来的项目，push的时候可能会遇到这个问题，这是因为代码未能及时同步，比如远端有readme文件没有同步，执行下边两句即可推送成功
   1. git pull --rebase origin master
-  2. git push -u origin master
+  2. git push -u origin master  或者
+  git remote -v
 
   ---
+
+  ### 查看状态
+  git status
 
   ### 全局配置
 
@@ -30,7 +34,7 @@
 >git branch -d dev
 ### 本地检出一个新的分支并推送到远程仓库
 - 创建本地分支,执行该指令后，会在本地创建一个新分支，该分支是从当前分支上检出的，所以所有文件内容都和当前分支一模一样，这是正常的。创建成功后，将自动切换至新分支上。
->git checkout -b 新分支名
+>git checkout -b 新分支名dev
 - 推送本地分支到远程仓库
 > git push --set-upstream origin 分支名
 
@@ -46,10 +50,21 @@
 > git commit -m ""
 > git commit -am "a表示add"
 
-3.推送到远程仓库
+3. 推送到远程仓库
 > git push -u origin master
 
 > 推送成功后，日后再push，直接git push就行了，不需要后面的 -u origin master
+
+4. 删除远程分支dev
+git push origin  :dev
+
+5. 回退到上一个版本
+git reset --hard head^
+ 回退到指定版本
+ git reset --hard HEAD@{1}
+
+6. 查看之前提交
+ git log / git reflog
 
 ### 关于tag
 - [x] 在控制台打印出当前仓库的所有标签
