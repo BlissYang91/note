@@ -86,3 +86,9 @@ npm list --depth=0
 –depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块
 
 ![image](https://note.youdao.com/yws/api/personal/file/FC21D29897FF426A9D4A04B30F4EF28C?method=download&shareKey=541f8364328ea359b40369cdce0e65de)
+
+7. 下载sass支持
+npm install node-sass sass-loader --save-dev
+
+8. 安装epubjs
+ npm install epubjs --save
