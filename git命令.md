@@ -52,9 +52,9 @@
 
 3. 推送到远程仓库
 > git push -u origin master
-
 > 推送成功后，日后再push，直接git push就行了，不需要后面的 -u origin master
-
+> git push --set-upstream origin master 保证你的远程分支存在，如果不存在，也就无法进行关联
+> git push -u origin master  即使远程没有你要关联的分支，它也会自动创建一个出来，以实现关联
 4. 删除远程分支dev
 git push origin  :dev
 
@@ -92,5 +92,8 @@ git reset --hard head^
 没有多余的合并历史的记录，且合并后的 commit 顺序不一定按照 commit 的提交时间排列
 可能会多次解决同一个地方的冲突（有 squash 来解决）
 更清爽一些，master 分支上每个 commit 点都是相对独立完整的功能单元
+
+
+
 
 
