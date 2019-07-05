@@ -74,6 +74,7 @@ git status
 
    > git commit -m ""
    > git commit -am "a 表示 add"
+   > git commit --amend 合并上一次commit
 
 3. 推送到远程仓库
    > git push -u origin master
