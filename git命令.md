@@ -143,8 +143,9 @@ git push origin  :dev
 
 > git rebase -i HEAD~2 将提交重新排序，然后把我们想要修改的提交记录挪到最前
 >  commit --amend 来进行一些小修改
-> 将制定分支强制移动到某个位置: git branch -f master c3  (将master分支强制移动到c3的位置)
-
+> 将指定分支强制移动到某个位置: git branch -f master c3  (将master分支强制移动到c3的位置)
+> 将HEAD上移 gitcheckout HEAD~2 上移两个commit的位置
+> 将HEAD指向另外一个父commit节点
 ## git describe 的​​语法是
 >git describe ref
 ref 可以是任何能被 Git 识别成提交记录的引用，如果你没有指定的话，Git 会以你目前所检出的位置（HEAD）。
@@ -155,15 +156,34 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 
 ## 远程仓库命令
  1. git pull 就是 fetch 和 merge 的简写; git pull --rebase 就是 fetch 和 rebase 的简写！
+
  2. git fetch ;git rabase origin/master;git push 
  >  git fetch 更新了本地仓库中的远程分支，然后用 rebase 将工们的工作移动到最新的提交记录下，最后再用 git push 推送到远程仓库。
+
  3. git fetch;git merge origin/master;git push
  > git fetch 更新了本地仓库中的远程分支，然后合并了新变更到我们的本地分支（为了包含远程仓库的变更），最后我们用 git push 把工作推送到远程仓库
+
  4. git pull --rebase;git push
  等同于 git fetch；git rebase; git push;拉取远程最新分支到本地，将本地工作分支放在最新远程分支后边提交
+
  5. 创建一个本地不存在的分支totallyNotMaster追踪指定远程分支master,远程分支master不更新
  > git checkout -b totallyNotMaster origin/master
+
  6. 设置远程追踪分支
 > git branch -u origin/master foo;
 > foo 就会跟踪 origin/master,如果当前就在 foo 分支上, 还可以省略 foo：
 > git branch -u origin/master;
+
+7. 将本地指定commit分支推送到远端指定分支
+> git push origin foo^:master   将本地foo分支的上一次commit提交推送到master分支
+
+8. 将本地分支推送到一个远端不存在的分支，git会在远端创建这个分支
+> git push origin master:newBranch
+9. git fetch origin foo~1:bar 将远程foo分支的上一个记录位置下载到本地bar分支上，没有bar则在本地创建，本地和远端分支均不更新
+
+10. git push origin ：foo  删除本地远程仓库的foo分支
+
+11. fetch 创建新分支： git fetch origin ：bar 在本地创建新分支bar，远端没有此分支
+
+12. 在本地创建了一个叫 foo 的分支，从远程仓库中的 master 分支中下载提交记录，并合并到 foo，然后再 merge 到我们的当前检出的分支上。远端分支位置不变
+    git pull origin master：foo  本地创建foo分支（已经有了就不会创建），拉取远端master分支记录 合并到foo，然后将合并后的foo分支在merge到当前分支。
