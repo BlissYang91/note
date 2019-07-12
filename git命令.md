@@ -52,6 +52,9 @@ git status
 
 > git branch -d dev
 
+### 强制把指定分支指向某次提交记录
+> git branch -f one c3 把one分支指向c3这次的哈希提交，HEAD也一起跟随
+
 ### 本地检出一个新的分支并推送到远程仓库
 
 - 创建本地分支,执行该指令后，会在本地创建一个新分支，该分支是从当前分支上检出的，所以所有文件内容都和当前分支一模一样，这是正常的。创建成功后，将自动切换至新分支上。
@@ -77,21 +80,12 @@ git status
    > git commit --amend 合并上一次commit
 
 3. 推送到远程仓库
-<<<<<<< HEAD
 > git push -u origin master
 > 推送成功后，日后再push，直接git push就行了，不需要后面的 -u origin master
 > git push --set-upstream origin master 保证你的远程分支存在，如果不存在，也就无法进行关联
 > git push -u origin master  即使远程没有你要关联的分支，它也会自动创建一个出来，以实现关联
 4. 删除远程分支dev
 git push origin  :dev
-=======
-   > git push -u origin master
-
-> 推送成功后，日后再 push，直接 git push 就行了，不需要后面的 -u origin master
-
-4. 删除远程分支 dev
-   git push origin :dev
->>>>>>> 2257c2ae037eb21ae2bd509a07e8297bc55aa5e2
 
 5. 回退到上一个版本
    git reset --hard head^
@@ -135,15 +129,41 @@ git push origin  :dev
 
 > 把 feture 分支 rebase 到 maser 之后，就是相对于 master 进行变更
 
-<<<<<<< HEAD
+## 本地创建项目关联远程仓库
+ >git remote add origin git@github.com:BlissYang91/hello-world.git
+ > git push -u origin master
 
+ ### 查看关联的远程仓库
+ > 加-v 是带地址url的，不加就是只显示名字
+ >git remote -v
 
+## 错误处理：
+1. Push rejected: Push to origin/master was rejected
+> git pull --rebase origin master
 
-=======
-1. 切换到 feture 分支
-2. 在 feture 分支上 git rebase
-   > 改变当前分支从 master 上拉出分支的位置
-   > 没有多余的合并历史的记录，且合并后的 commit 顺序不一定按照 commit 的提交时间排列
-   > 可能会多次解决同一个地方的冲突（有 squash 来解决）
-   > 更清爽一些，master 分支上每个 commit 点都是相对独立完整的功能单元
->>>>>>> 2257c2ae037eb21ae2bd509a07e8297bc55aa5e2
+> git rebase -i HEAD~2 将提交重新排序，然后把我们想要修改的提交记录挪到最前
+>  commit --amend 来进行一些小修改
+> 将制定分支强制移动到某个位置: git branch -f master c3  (将master分支强制移动到c3的位置)
+
+## git describe 的​​语法是
+>git describe ref
+ref 可以是任何能被 Git 识别成提交记录的引用，如果你没有指定的话，Git 会以你目前所检出的位置（HEAD）。
+它输出的结果是这样的：
+tag_numCommits_g hash
+tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 tag 相差有多少个提交记录， hash 表示的是你所给定的 ref 所表示的提交记录哈希值的前几位。
+当 ref 提交记录上有某个标签时，则只输出标签名称
+
+## 远程仓库命令
+ 1. git pull 就是 fetch 和 merge 的简写; git pull --rebase 就是 fetch 和 rebase 的简写！
+ 2. git fetch ;git rabase origin/master;git push 
+ >  git fetch 更新了本地仓库中的远程分支，然后用 rebase 将工们的工作移动到最新的提交记录下，最后再用 git push 推送到远程仓库。
+ 3. git fetch;git merge origin/master;git push
+ > git fetch 更新了本地仓库中的远程分支，然后合并了新变更到我们的本地分支（为了包含远程仓库的变更），最后我们用 git push 把工作推送到远程仓库
+ 4. git pull --rebase;git push
+ 等同于 git fetch；git rebase; git push;拉取远程最新分支到本地，将本地工作分支放在最新远程分支后边提交
+ 5. 创建一个本地不存在的分支totallyNotMaster追踪指定远程分支master,远程分支master不更新
+ > git checkout -b totallyNotMaster origin/master
+ 6. 设置远程追踪分支
+> git branch -u origin/master foo;
+> foo 就会跟踪 origin/master,如果当前就在 foo 分支上, 还可以省略 foo：
+> git branch -u origin/master;
