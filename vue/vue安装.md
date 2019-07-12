@@ -1,6 +1,4 @@
 
-## 陪伴项目前端设计
-
 [配置更新](config_update.md)
 [发布更新](changelog.md)
 
