@@ -146,6 +146,13 @@ git push origin  :dev
 > 将指定分支强制移动到某个位置: git branch -f master c3  (将master分支强制移动到c3的位置)
 > 将HEAD上移 gitcheckout HEAD~2 上移两个commit的位置
 > 将HEAD指向另外一个父commit节点
+
+2. 本地分支与远程失去关联 
+> The current branch feature/xxxx has no upstream branch.
+  To push the current branch and set the remote as upstream, use
+
+ git push --set-upstream origin feature/xxxx
+ <!-- 指定远程分支并添加关联推送 -->
 ## git describe 的​​语法是
 >git describe ref
 ref 可以是任何能被 Git 识别成提交记录的引用，如果你没有指定的话，Git 会以你目前所检出的位置（HEAD）。
