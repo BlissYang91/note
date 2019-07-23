@@ -160,6 +160,7 @@ fatal: remote origin already exists.
 git remote set-url origin  git@gitlab.xxx.com:xxx/crm_app.git
 
 ## git describe 的​​语法是
+
 >git describe ref
 ref 可以是任何能被 Git 识别成提交记录的引用，如果你没有指定的话，Git 会以你目前所检出的位置（HEAD）。
 它输出的结果是这样的：
