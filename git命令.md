@@ -201,8 +201,9 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 
 12. 在本地创建了一个叫 foo 的分支，从远程仓库中的 master 分支中下载提交记录，并合并到 foo，然后再 merge 到我们的当前检出的分支上。远端分支位置不变
     git pull origin master：foo  本地创建foo分支（已经有了就不会创建），拉取远端master分支记录 合并到foo，然后将合并后的foo分支在merge到当前分支。
-    
+
 ## git忽略文件,删除远程仓库要忽略的文件（夹）
+
 1. git rm -r --cached .idea 删除暂存区指定要忽略的文件夹 .idea
 2. git rm -r --cached . 删除本地暂存区所有文件（本地文件夹不受影响）
 3. 项目根目录下新建.gitignore文件，配置要删除的远程文件和文件夹关联的名字
