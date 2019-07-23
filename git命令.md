@@ -182,6 +182,7 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
  > git checkout -b totallyNotMaster origin/master
 
  6. 设置远程追踪分支
+ 
 > git branch -u origin/master foo;
 > foo 就会跟踪 origin/master,如果当前就在 foo 分支上, 还可以省略 foo：
 > git branch -u origin/master;
