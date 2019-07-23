@@ -65,8 +65,7 @@ git status
 
 - 将远程 git 仓库里的指定分支拉取到本地（从远程仓库里拉取一条本地不存在的分支）
   > git checkout -b 本地分支名 origin/远程分支名
-
-> 将会自动创建一个新的本地分支，并与指定的远程分支关联起来,拉取分支前先 git fetch
+  > 将会自动创建一个新的本地分支，并与指定的远程分支关联起来,拉取分支前先 git fetch
 
 ### 把本地仓库里的文件提交到远程仓库里
 
@@ -96,7 +95,7 @@ git push origin  :dev
    git log / git reflog
 
 ### 追踪远程分支
-1.   git branch --set --upstream origin/master
+1. git branch --set-upstream origin/master
 2. git fetch --all 从远程获取代码到本地，不会合并
 3. git reset --hard origin/master 舍弃本地，远端代码覆盖本地代码，本地分支的head被重置成远端分支的head ，本地代码会丢失
 4. git fetch
@@ -127,7 +126,7 @@ git push origin  :dev
 
 ### git rebase 合并操作
 
-> 把 feture 分支 rebase 到 maser 之后，就是相对于 master 进行变更
+> 把 feture 分支 rebase 到 master 之后，就是相对于 master 进行变更
 
 ## 本地创建项目关联远程仓库
  >git remote add origin git@github.com:BlissYang91/hello-world.git
