@@ -191,6 +191,7 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 
 8. 将本地分支推送到一个远端不存在的分支，git会在远端创建这个分支
 > git push origin master:newBranch
+
 9. git fetch origin foo~1:bar 将远程foo分支的上一个记录位置下载到本地bar分支上，没有bar则在本地创建，本地和远端分支均不更新
 
 10. git push origin ：foo  删除本地远程仓库的foo分支
