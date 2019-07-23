@@ -137,6 +137,7 @@ git push origin  :dev
  >git remote -v
 
 ## 错误处理：
+
 1. Push rejected: Push to origin/master was rejected
 > git pull --rebase origin master
 
