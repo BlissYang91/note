@@ -96,7 +96,7 @@ git push origin  :dev
    git log / git reflog
 
 ### 追踪远程分支
-1. git branch --set-upstream origin/master
+1. git branch --set-upstream-to origin dev 
 2. git fetch --all 从远程获取代码到本地，不会合并
 3. git reset --hard origin/master 舍弃本地，远端代码覆盖本地代码，本地分支的head被重置成远端分支的head ，本地代码会丢失
 4. git fetch
