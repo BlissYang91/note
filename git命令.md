@@ -51,6 +51,7 @@ git status
 ### 删除本地分支
 
 > git branch -d dev
+> git branch -D dev 强制删除
 
 ### 强制把指定分支指向某次提交记录
 > git branch -f one c3 把one分支指向c3这次的哈希提交，HEAD也一起跟随
