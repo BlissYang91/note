@@ -214,3 +214,13 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
  4. git add .  重新添加暂存区文件（此时本地已经按照根目录下.gitignore文件过滤了要忽略的文件）
  5. git commit -m "删除本地要忽略的git文件关联"
  6. git push 将本地修改推送远程仓库，此时远程仓库的对应分支上就会同步本地修改，成功删除远程仓库要忽略的git文件关联。
+ 
+ ## 从远程仓库拉取最新代码合并到本地
+ //查询当前远程的版本
+$ git remote -v
+//获取最新代码到本地(本地当前分支为[branch]，获取的远端的分支为[origin/branch])
+$ git fetch origin master  [示例1：获取远端的origin/master分支]
+//查看版本差异
+$ git log -p master..origin/master [示例1：查看本地master与远端origin/master的版本差异]
+//合并最新代码到本地分支
+$ git merge origin/master  [示例1：合并远端分支origin/master到当前分支]
