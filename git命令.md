@@ -4,6 +4,9 @@
 
 - https://learngitbranching.js.org/
 
+### ssh 配置
+- ssh-keygen -t rsa -C "your_email@example.com"
+
 ### 如何解决 failed to push some refs to git
 
     > 刚从GitHub关联克隆下来的项目，push的时候可能会遇到这个问题，这是因为代码未能及时同步，比如远端有readme文件没有同步，执行下边两句即可推送成功
