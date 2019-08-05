@@ -4,4 +4,10 @@
 - gradlew :app:dependencies
 - [x] manifest合并错误
 - gradlew processDebugManifest --stacktrace
+- [x] mac 权限问题  
+- chmod +x gradlew
+- ./gradlew processDebugManifest --stacktrace
+- [x] ./gradlew processSourceSetsManifest -stacktrace
+
+
 
