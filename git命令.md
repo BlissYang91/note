@@ -214,11 +214,18 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 2. git rm -r --cached . 删除本地暂存区所有文件（本地文件夹不受影响）
 3. 项目根目录下新建.gitignore文件，配置要删除的远程文件和文件夹关联的名字
 ```
-*.idea
 *.iml
-*.gradle
-*/build/*
+.gradle
+.idea
+.settings
+*.jks
+/effective.gradle
+/gradle.properties
 /local.properties
+.DS_Store
+/build
+/captures
+.externalNativeBuild
 
  ```
  4. git add .  重新添加暂存区文件（此时本地已经按照根目录下.gitignore文件过滤了要忽略的文件）
