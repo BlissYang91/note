@@ -132,7 +132,7 @@ git push origin  :dev
 ## 本地创建项目关联远程仓库
  >git remote add origin git@github.com:BlissYang91/hello-world.git
  > git push -u origin master
- .error : git remote add origin git@github.com:BlissYang91/vuebase.git 
+ >error : git remote add origin git@github.com:BlissYang91/vuebase.git 
 fatal: remote origin already exists. 
 > git remote set-url origin git@github.com:BlissYang91/vuebase.git
 
