@@ -133,8 +133,10 @@ git push origin  :dev
 > 把 feture 分支 rebase 到 master 之后，就是相对于 master 进行变更
 
 ## 本地创建项目关联远程仓库
+
  - git remote add origin git@github.com:BlissYang91/hello-world.git
  - git push -u origin master
+
 
  ### 查看关联的远程仓库
  > 加-v 是带地址url的，不加就是只显示名字
