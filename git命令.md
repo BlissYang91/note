@@ -133,11 +133,8 @@ git push origin  :dev
 > 把 feture 分支 rebase 到 master 之后，就是相对于 master 进行变更
 
 ## 本地创建项目关联远程仓库
- >git remote add origin git@github.com:BlissYang91/hello-world.git
- > git push -u origin master
- >error : git remote add origin git@github.com:BlissYang91/vuebase.git 
-fatal: remote origin already exists. 
-> git remote set-url origin git@github.com:BlissYang91/vuebase.git
+ - git remote add origin git@github.com:BlissYang91/hello-world.git
+ - git push -u origin master
 
  ### 查看关联的远程仓库
  > 加-v 是带地址url的，不加就是只显示名字
@@ -158,8 +155,11 @@ fatal: remote origin already exists.
 > The current branch feature/xxxx has no upstream branch.
   To push the current branch and set the remote as upstream, use
 
- git push --set-upstream origin feature/xxxx
  <!-- 指定远程分支并添加关联推送 -->
+ git push --set-upstream origin feature/xxxx
+- [x] error : git remote add origin git@github.com:BlissYang91/vuebase.git 
+- fatal: remote origin already exists. 
+- git remote set-url origin git@github.com:BlissYang91/vuebase.git
  
  3. 重新关联远端
  > git remote add origin git@gitlab.xxx.com:xxx/crm_app.git
