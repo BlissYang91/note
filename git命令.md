@@ -132,9 +132,6 @@ git push origin  :dev
 ## 本地创建项目关联远程仓库
  >git remote add origin git@github.com:BlissYang91/hello-world.git
  > git push -u origin master
- >error : git remote add origin git@github.com:BlissYang91/vuebase.git 
-fatal: remote origin already exists. 
-> git remote set-url origin git@github.com:BlissYang91/vuebase.git
 
  ### 查看关联的远程仓库
  > 加-v 是带地址url的，不加就是只显示名字
@@ -157,6 +154,9 @@ fatal: remote origin already exists.
 
  git push --set-upstream origin feature/xxxx
  <!-- 指定远程分支并添加关联推送 -->
+-[x] error : git remote add origin git@github.com:BlissYang91/vuebase.git 
+- fatal: remote origin already exists. 
+- 解决： git remote set-url origin git@github.com:BlissYang91/vuebase.git
  
  3. 重新关联远端
  > git remote add origin git@gitlab.xxx.com:xxx/crm_app.git
