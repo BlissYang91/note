@@ -104,7 +104,14 @@ git push origin  :dev
 3. git reset --hard origin/master 舍弃本地，远端代码覆盖本地代码，本地分支的head被重置成远端分支的head ，本地代码会丢失
 4. git fetch
 
+### 创建一个空分支
+1. git checkout --orphan 分支名
+2. git rm -rf . 把当前内容全部删除
+3. git commit -am "和其他分支无关联的空分支"
+4. 如果没有任何文件提交的话，分支是看不到的，可以创建一个新文件后再次提交则新创建的branch就会显示出来。
+使用branch来查看分支是否创建成功
 
+git branch -a
 ### 关于 tag
 
 - [x] 在控制台打印出当前仓库的所有标签
