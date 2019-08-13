@@ -220,6 +220,40 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 12. 在本地创建了一个叫 foo 的分支，从远程仓库中的 master 分支中下载提交记录，并合并到 foo，然后再 merge 到我们的当前检出的分支上。远端分支位置不变
     git pull origin master：foo  本地创建foo分支（已经有了就不会创建），拉取远端master分支记录 合并到foo，然后将合并后的foo分支在merge到当前分支。
 
+## 关于git rebase 合并多个（以3个commit为例）commit提交
+1.git rebase -i HEAD~3 进入vim编辑窗口,将要合并的commit的pick改为squash或者s
+2.保存当前窗口并退出（在当前窗口按下Esc键然后:wq保存退出）
+3.退出后Git会陆续压缩提交历史（commit）,如果有冲突需要修改，选择保留最新的提交历史
+4. git add . 将修改添加到暂存区 
+5. git rebase --continue
+6.刪除本地merge临时文件
+
+```
+rm .git/MERGE_MSG
+```
+>如果中间执行了git rebase --abort 或者直接关闭了IDE 会产生COMMIT_EDITMSG临时文件
+7. 删除不正常结束的commit临时文件
+>使用rebase进行合并commit提交的时候出现了不正常退出导致.git文件夹下存在了临时文件从而无法执行git rebase --continue,解决办法就是删除此临时文件重新合并提交
+```
+Found a swap file by the name "D:/web/vue2/.git/.COMMIT_EDITMSG.swp"
+          owned by: YTF   dated: Mon Aug 12 20:02:12 2019
+         file name: /d/web/vue2/.git/COMMIT_EDITMSG
+          modified: no
+         user name: YTF   host name: blissyang
+        process ID: 20396 (still running)
+While opening file "D:/web/vue2/.git/COMMIT_EDITMSG"
+             dated: Mon Aug 12 20:03:43 2019
+      NEWER than swap file!
+      
+      Swap file "D:/web/vue2/.git/.COMMIT_EDITMSG.swp" already exists!
+```
+
+
+```
+rm .git/COMMIT_EDITMSG
+rm .git/.COMMIT_EDITMSG.sw*
+```
+
 ## git忽略文件,删除远程仓库要忽略的文件（夹）
 
 1. git rm -r --cached .idea 删除暂存区指定要忽略的文件夹 .idea
