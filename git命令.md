@@ -33,6 +33,9 @@ git status
 ### 从远端拉取分支到本地
 
 > git pull origin dev(远程分支名称)
+- [x] 同步远程最新分支，解决error：failed to push some refs to
+> git pull --rebase origin master
+> 把远程库中的更新合并到本地,rebase的作用是取消掉本地库中刚刚的commit，并把他们接到更新后的版本库之中。
 
 ### 查看本地已有的分支
 
