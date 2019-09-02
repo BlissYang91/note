@@ -140,7 +140,9 @@ git branch -a
 
 ### git rebase 合并操作
 
-> 把 feture 分支 rebase 到 master 之后，就是相对于 master 进行变更
+> 1. 不更新本地master分支，直接以origin/master 为新的基准点，将新分支的修改记录在后边
+git fetch origin master   git rebase origin/master
+>以上等同于： git pull origin master --rebase
 
 ## 本地创建项目关联远程仓库
 
