@@ -138,10 +138,10 @@ git branch -a
    > 只处理一次冲突,引入了一次合并的历史记录，合并后的所有 commit 会按照提交时间从旧到新排列
    > 所有的过程信息更多，可能会提高之后查找问题的难度
 
-### git rebase 合并操作
+### git rebase 同步远端代码
 
 > 1. 不更新本地master分支，直接以origin/master 为新的基准点，将新分支的修改记录在后边
-git fetch origin master   git rebase origin/master
+   git fetch origin master   git rebase origin/master
 >以上等同于： git pull origin master --rebase
 
 ## 本地创建项目关联远程仓库
