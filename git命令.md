@@ -193,7 +193,7 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
  1. git pull 就是 fetch 和 merge 的简写; git pull --rebase 就是 fetch 和 rebase 的简写！
 
  2. git fetch ;git rabase origin/master;git push 
- >  git fetch 更新了本地仓库中的远程分支，然后用 rebase 将工们的工作移动到最新的提交记录下，最后再用 git push 推送到远程仓库。
+ >  git fetch 更新了本地仓库中的远程分支，然后用 rebase 将工作移动到最新的提交记录下，最后再用 git push 推送到远程仓库。
 
  3. git fetch;git merge origin/master;git push
  > git fetch 更新了本地仓库中的远程分支，然后合并了新变更到我们的本地分支（为了包含远程仓库的变更），最后我们用 git push 把工作推送到远程仓库
