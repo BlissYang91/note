@@ -7,6 +7,22 @@
 ### ssh 配置
 - ssh-keygen -t rsa -C "your_email@example.com"
 
+### ssh 查看
+
+```
+cd ~/.ssh
+yangtianfudeMacBook-Pro:.ssh yangtianfu$ git config --list
+credential.helper=osxkeychain
+user.name=BlissYang91
+user.email=2812420513@qq.com
+yangtianfudeMacBook-Pro:.ssh yangtianfu$ ls
+id_rsa		id_rsa.pub	known_hosts 
+ yangtianfu$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbosIffwllQaufWLli2ddhXtRWLDFEmK51wxmGFB1nUL+eKst3tlnwosgxG6Jx5cy/jJr2O4pn/psO3pC32Pv90cpYSMyCm2CepIkUiTNkTK7RVQzZGZn+zahM6YPXSlK3+bXR5n7ufoCzn5VnXzzuelU8AkMs0O9SovDHZCNCoh/m0xd2GYKQeVpWEsO+E8hCGbpBIXmLJr1Pu0F1nF1VRyIGP/VNTN1Dm/i7t1YZD/6nrD3oKmUWxrivWCByNPaEq6e6vUdDM0RIatg7zC1aNLZFpR4TpSbYp3wyNXcYg7SbtQSh27YIVyyNrMKPN0tOV/LH33Woi59YRwgKxAVt 2812420513@qq.com
+yangtianfudeMacBook-Pro:.ssh yangtianfu$ 
+复制上述ssh到git中即可。
+
+```
 ### 如何解决 failed to push some refs to git
 
     > 刚从GitHub关联克隆下来的项目，push的时候可能会遇到这个问题，这是因为代码未能及时同步，比如远端有readme文件没有同步，执行下边两句即可推送成功
@@ -130,7 +146,7 @@ git branch -a
 - git tag -d v0.1.2
 - [x] 推送tag
 - git push --tags 
-
+·
 ### git merge 合并分支
 
 > 将分支 feature 合并到分支 master
