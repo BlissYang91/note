@@ -128,6 +128,8 @@ git branch -a
 - git show v0.1.2
 - [x] 删除标签
 - git tag -d v0.1.2
+- [x] 推送tag
+- git push --tags 
 
 ### git merge 合并分支
 
