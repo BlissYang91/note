@@ -6,6 +6,7 @@
 
 ### ssh 配置
 - ssh-keygen -t rsa -C "your_email@example.com"
+- https://www.jianshu.com/p/601735ce7113·
 
 ### ssh 查看
 
