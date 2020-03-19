@@ -311,3 +311,13 @@ $ git fetch origin master  [示例1：获取远端的origin/master分支]
 $ git log -p master..origin/master [示例1：查看本地master与远端origin/master的版本差异]
 //合并最新代码到本地分支
 $ git merge origin/master  [示例1：合并远端分支origin/master到当前分支]
+
+
+- [x] 本地分支推送到github
+- github上创建readme文件，看到master分支
+- git remote add origin git@github.com:BlissYang91/tablayout.git
+- git add . 
+- git commit -m ""
+- git fetch 
+- git pull origin master --allow-unrelated-histories
+-  git push --set-upstream origin master
