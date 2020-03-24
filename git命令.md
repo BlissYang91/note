@@ -222,6 +222,7 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 
  5. 创建一个本地不存在的分支totallyNotMaster追踪指定远程分支master,远程分支master不更新
  > git checkout -b totallyNotMaster origin/master
+ > git branch --track dev1 origin/dev
 
  6. 设置远程追踪分支
 
