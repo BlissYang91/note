@@ -119,6 +119,10 @@ git push origin  :dev
 6. 查看之前提交
    git log / git reflog
 
+7. 真实的画出本地+远程所有分支的全部提交的树状结构
+   > gitk --all
+   > git log --graph --all    (不建议使用)
+
 ### 追踪远程分支
 1. git branch --set-upstream-to origin dev 
 2. git fetch --all 从远程获取代码到本地，不会合并
