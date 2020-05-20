@@ -8,6 +8,3 @@
 - chmod +x gradlew
 - ./gradlew processDebugManifest --stacktrace
 - [x] ./gradlew processSourceSetsManifest -stacktrace
-
-
-
