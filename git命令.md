@@ -115,7 +115,7 @@ git push origin  :dev
    回退到指定版本
    git reset --hard HEAD@{1}
    git reset --hard f82cfd2
-
+`
 6. 查看之前提交
    git log / git reflog
 
