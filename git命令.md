@@ -218,7 +218,7 @@ $ git cherry-pick A^..B
 
  ### 查看关联的远程仓库
  > 加-v 是带地址url的，不加就是只显示名字
- >git remote -v
+ > git remote -v
 
 ## 错误处理：
 
