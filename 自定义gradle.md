@@ -280,6 +280,31 @@ dependencies {
 }
 
 ```
+```
+## jar包重复问题
+- [x] Android studio默认会有so文件进行压缩优化，加入以下配置可以不压缩so
+- doNotStrip "*/armeabi-v7a/libYTCommon.so"
+- [x] pickFirst  当有多个匹配项的时候匹配到第一个就可以了
+
+```
+    packagingOptions {
+        pickFirst '**/libRSSupport.so'
+        pickFirst '**/librsjni.so'
+        pickFirst '**/librsjni_androidx.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+    }
+```
+## 忽略链接错误
+
+```
+lintOptions {
+        abortOnError false
+    }
+```
 
 
 
