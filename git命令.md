@@ -244,7 +244,8 @@ $ git cherry-pick A^..B
  4. 重新关联远端
  > git remote add origin git@gitlab.xxx.com:xxx/crm_app.git
 fatal: remote origin already exists.
-git remote set-url origin  git@gitlab.xxx.com:xxx/crm_app.git
+> 不用操作原来的远端分支，直接设置新的远程仓库地址
+> git remote set-url origin  git@gitlab.xxx.com:xxx/crm_app.git
 
 ## git describe 的​​语法是
 
