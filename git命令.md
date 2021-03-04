@@ -362,6 +362,7 @@ $ git log -p master..origin/master [示例1：查看本地master与远端origin/
 $ git merge origin/master  [示例1：合并远端分支origin/master到当前分支]
 
 - [x] 本地分支推送到github
+- git init
 - github上创建readme文件，看到master分支
 - git remote add origin git@github.com:BlissYang91/tablayout.git
 - git add . 
