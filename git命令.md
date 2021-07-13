@@ -19,7 +19,7 @@ user.email=2812420513@qq.com
 yangtianfudeMacBook-Pro:.ssh yangtianfu$ ls
 id_rsa		id_rsa.pub	known_hosts 
  yangtianfu$ cat id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbosIffwllQaufWLli2ddhXtRWLDFEmK51wxmGFB1nUL+eKst3tlnwosgxG6Jx5cy/jJr2O4pn/psO3pC32Pv90cpYSMyCm2CepIkUiTNkTK7RVQzZGZn+zahM6YPXSlK3+bXR5n7ufoCzn5VnXzzuelU8AkMs0O9SovDHZCNCoh/m0xd2GYKQeVpWEsO+E8hCGbpBIXmLJr1Pu0F1nF1VRyIGP/VNTN1Dm/i7t1YZD/6nrD3oKmUWxrivWCByNPaEq6e6vUdDM0RIatg7zC1aNLZFpR4TpSbYp3wyNXcYg7SbtQSh27YIVyyNrMKPN0tOV/LH33Woi59YRwgKxAVt 2812420513@qq.com
+
 yangtianfudeMacBook-Pro:.ssh yangtianfu$ 
 复制上述ssh到git中即可。
 
