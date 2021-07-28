@@ -81,6 +81,19 @@ public class FileUtil {
         return fileDir;
     }
 
+    // 打印十六进制（10进制转16进制）
+   public static String printHexString(byte[] b) {
+        String res = "";
+        for (int i = 0; i < b.length; i++) {
+            String hex = Integer.toHexString(b[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex  + " ";
+            }
+            res += hex;
+        }
+        return res;
+    }
+
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static File createFile(String sdcardDirName, String fileName) {
         return new File(createDir(sdcardDirName), fileName);
