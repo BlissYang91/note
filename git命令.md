@@ -1,8 +1,11 @@
 [TOC]
 
-### 在线学习
+### 修改commit信息
+```
+git log --oneline -5 查看最近5次commit的简要信息
+git commit --amend 修改最近一次的commit 信息
+````
 
-- https://learngitbranching.js.org/
 
 ### ssh 配置
 - ssh-keygen -t rsa -C "your_email@example.com"

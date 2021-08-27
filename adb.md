@@ -137,6 +137,11 @@ adb shell logcat -s PresentationsService > D:/locat_navi.txt
   adb pull storage/emulated/0/filename.txt D:/file
 ```
 
+- adb 推送文件
+```
+adb push D:\text.log storage/emulated/0/
+```
+
 
 17、adb start/kill-server
 启动/杀死adb简介中提到的Server端进程。
