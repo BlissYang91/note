@@ -4,6 +4,32 @@
 ```
 git log --oneline -5 查看最近5次commit的简要信息
 git commit --amend 修改最近一次的commit 信息
+
+
+生成patch：
+git format-patch -M master
+生成指定patch，0163bed3bf59ae74c36cc5138b4c24f1556d8304是commit id，-1是指从当前id开始，向下提交次数，包含此次且计数从1开始。
+也就是说，我想要打出0163bed3bf59ae74c36cc5138b4c24f1556d8304当前的patch，则：
+git format-patch 0163bed3bf59ae74c36cc5138b4c24f1556d8304 -1
+想要打出0163bed3bf59ae74c36cc5138b4c24f1556d8304和它之前的一次提交的patch，则：
+git format-patch 0163bed3bf59ae74c36cc5138b4c24f1556d8304 -2
+生成diff：
+git diff (id1) (id2) --binary --(path) > 目标文件路径
+比如要生成frameworks/base/下的diff，保存到~/gittest/下的f_b.diff：（注意：旧的id1在前）
+git diff 206b47c132a80870c06d87c69a548bbfeebecd2d b5ce3e4ebe9503e370d734cecc12482bca023fdf --binary -- frameworks/base/ > ~/gittest/f_b.diff
+
+
+打入 patch / diff：
+git apply xxx.patch
+git apply xxx.diff
+检查 patch / diff：
+git apply --check xxx.patch
+git apply --check xxx.diff
+若git和需要打patch的文件不在一个目录：(git在framework下，patch要打入frameworks/base/下)
+git apply --check --directory=base/ xxx.patch
+git apply --directory=base/ xxx.patch
+** git am 后面会说到，以及生产patch和打入patch的一些命令参数**
+
 ````
 
 
