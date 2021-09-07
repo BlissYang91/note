@@ -4,6 +4,7 @@
 ```
 git log --oneline -5 查看最近5次commit的简要信息
 git commit --amend 修改最近一次的commit 信息
+ git commit --amend --author=用户名  修改作者信息
 
 
 生成patch：
@@ -330,6 +331,7 @@ tag 表示的是离 ref 最近的标签， numCommits 是表示这个 ref 与 ta
 5. git rebase --continue
 6.刪除本地merge临时文件
 
+
 ```
 rm .git/MERGE_MSG
 ```
@@ -349,6 +351,8 @@ While opening file "D:/web/vue2/.git/COMMIT_EDITMSG"
       
       Swap file "D:/web/vue2/.git/.COMMIT_EDITMSG.swp" already exists!
 ```
+
+
 
 
 ```
