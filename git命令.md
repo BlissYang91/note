@@ -1,5 +1,19 @@
 [TOC]
+### git stash
+```
+//在未add之前才能执行stash
+git stash [save message] //保存，save为可选项，message为本次保存的注释
 
+git stash list //所有保存的记录列表
+
+git stash pop stash@{num} //恢复，num是可选项，通过git stash list可查看具体值。只能恢复一次
+
+git stash apply stash@{num} //恢复，num是可选项，通过git stash list可查看具体值。可回复多次
+
+git stash drop stash@{num} 删除某个保存，num是可选项，通过git stash list可查看具体值
+
+git stash clear //删除所有保存
+```
 ### 修改commit信息
 ```
 git log --oneline -5 查看最近5次commit的简要信息
