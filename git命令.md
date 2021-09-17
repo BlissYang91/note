@@ -82,7 +82,7 @@ yangtianfudeMacBook-Pro:.ssh yangtianfu$
 ---
 
 ### 查看状态
-
+`
 git status
 
 ### 全局配置
@@ -429,3 +429,4 @@ git config --global  --list
 - git config --local  --list
 - [x] 配置指令
 - git config
+`

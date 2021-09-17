@@ -1,3 +1,5 @@
+package com.by.skin_core.utils;
+
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -5,6 +7,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,13 +25,14 @@ import java.util.Date;
  * @Description 日志保存SD卡并上传服务器的工具类
  */
 public class LogUtil {
-    private static final String TAG = "LogUtil";
+    private static final String TAG = LogUtil.class.getSimpleName();
     // 是否需要打印bug，在application的onCreate函数里面初始化
     public static boolean isDebug;
     private static final String PATH = Environment.getExternalStorageDirectory().getPath() + "/CrashKZ/log/";
     private static final String FILE_NAME = "crash";
     private static final String FILE_NAME_SUFFIX = ".txt";
     private static Context mContext;
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     public static void init(Context context) {
         mContext = context.getApplicationContext();
@@ -39,10 +46,8 @@ public class LogUtil {
         }
     }
 
-    public static void d(String msg) {
-        if (isDebug) {
-            Log.d(TAG, msg);
-        }
+    public static void d(String tag, String msg) {
+        showLogCompletion(tag,msg);
     }
 
     public static void e(String msg) {
@@ -75,7 +80,7 @@ public class LogUtil {
 
     /**
      * 截断输出日志
-     * 
+     *
      * @param msg
      */
     public static void eLength(String tag, String msg) {
@@ -97,24 +102,60 @@ public class LogUtil {
             }
         }
     }
+    
+    public static void printJson(String tag, String msg, String headString) {
+        
+
+        String message;
+
+        try {
+            if (msg.startsWith("{")) {
+                JSONObject jsonObject = new JSONObject(msg);
+                message = jsonObject.toString(4);//最重要的方法，就一行，返回格式化的json字符串，其中的数字4是缩进字符数
+            } else if (msg.startsWith("[")) {
+                JSONArray jsonArray = new JSONArray(msg);
+                message = jsonArray.toString(4);
+            } else {
+                message = msg;
+            }
+        } catch (JSONException e) {
+            message = msg;
+        }
+
+        printLine(tag, true);
+        message = headString + LINE_SEPARATOR + message;
+        String[] lines = message.split(LINE_SEPARATOR);
+        for (String line : lines) {
+            Log.d(tag, "║ " + line);
+        }
+        printLine(tag, false);
+    }
+
+    public static void printLine(String tag, boolean isTop) {
+        if (isTop) {
+            Log.d(tag, "╔═══════════════════════════════════════════════════════════════════════════════════════");
+        } else {
+            Log.d(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
+        }
+    }
 
     /**
      * 分段打印出较长log文本
-     * 
+     *
      * @param log 原log文本
      * @param
      */
-    public static void showLogCompletion(String string, String log) {
+    public static void showLogCompletion(String tag, String log) {
         if (log.length() > 4000) {
             for (int i = 0; i < log.length(); i += 4000) {
                 if (i + 4000 < log.length()) {
-                    Log.i(string + i, log.substring(i, i + 4000));
+                    Log.d(tag + i, log.substring(i, i + 4000));
                 } else {
-                    Log.i(string + i, log.substring(i, log.length()));
+                    Log.d(tag + i, log.substring(i, log.length()));
                 }
             }
         } else {
-            Log.i(string, log);
+            Log.d(tag, log);
         }
     }
 
@@ -178,3 +219,4 @@ public class LogUtil {
         pw.println(Build.CPU_ABI);
     }
 }
+
