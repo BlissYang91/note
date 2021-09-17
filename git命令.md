@@ -1,4 +1,7 @@
 [TOC]
+
+### 撤销本地修改
+git checkout -- *
 ### git stash
 ```
 //在未add之前才能执行stash
