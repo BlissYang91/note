@@ -1,5 +1,82 @@
 [TOC]
 
+## git 生成patch和打patch
+
+`git diff打包的patch只能使用git apply处理。而git format-patch的补丁，可以应当使用git am命令。`
+### 生成patch
+
+- [x] git diff > xxx.patch 未提交部分
+1. 只想 patch Test.java 文件
+
+```
+git diff Test.java > test.patch
+```
+
+2. 把所有的修改文件打成 patch，未提交部分
+
+```
+git diff > test.patch
+```
+
+- [x] git format-patch -x 生成最近的x次commit的patch
+
+```
+git format-patch -1            #生成最近的1次commit的patch
+git format-patch -2            #生成最近的2次commit的patch
+$ git format-patch HEAD^       #生成最近的1次commit的patch
+$ git format-patch <r1>..<r2>  #生成两个commit间的修改的patch（生成的patch不包含r1. <r1>和<r2>都是具体的commit号)
+$ git format-patch -1 <r1>     #生成单个commit的patch
+$ git format-patch <r1>        #生成某commit以来的修改patch（不包含该commit）
+$ git format-patch --root <r1> #生成从根到r1提交的所有patch
+```
+
+### 检查patch的情况
+
+```
+$ git apply --stat 0001-limit-log-function.patch  # 查看patch的情况
+$ git apply --check 0001-limit-log-function.patch # 检查patch是否能够打上，如果没有任何输出，则说明无冲突，可以打上
+
+```
+### 应用patch
+- [x] git am会直接将patch的所有信息打上去，而且不用重新git add和git commit，author也是patch的author而不是打patch的人。
+- [x] git apply是另外一种打patch的命令，其与git am的区别是：git apply并不会将commit message等打上去，打完patch后需要重新git add和git commit。
+
+1. 打patch - 使用git diff生成的patch
+` git apply xxx.patch`
+ 
+2.  打patch - 使用git format-patch生成的patch
+ 
+```
+$ git am 0001-limit-log-function.patch           # 将名字为0001-limit-log-function.patch的patch打上
+$ git am --signoff 0001-limit-log-function.patch # 添加-s或者--signoff，还可以把自己的名字添加为signed off by信息，作用是注明打patch的人是谁，因为有时打patch的人并不是patch的作者
+$ git am ~/patch-set/*.patch                     # 将路径~/patch-set/*.patch 按照先后顺序打上
+$ git am --abort                                 # 当git am失败时，用以将已经在am过程中打上的patch废弃掉(比如有三个patch，打到第三个patch时有冲突，那么这条命令会把打上的前两个patch丢弃掉，返回没有打patch的状态)
+$ git am --resolved                              # 当git am失败，解决完冲突后，这条命令会接着打patch
+```
+### patch冲突
+
+```
+(1) 根据git am失败的信息，找到发生冲突的具体patch文件，然后用命令git apply --reject <patch_name>，强行打这个patch，发生冲突的部分会保存为.rej文件（例如发生冲突的文件是a.txt，那么运行完这个命令后，发生conflict的部分会保存为a.txt.rej），未发生冲突的部分会成功打上patch
+(2) 根据.rej文件，通过编辑该patch文件的方式解决冲突。值得注意的是，.rej文件描述的是现有的源文件与patch文件发生冲突的部分，即因为文件的哪里不一样导致patch打不上去，同时也有patch所没打上的change。关于如何读懂.rej文件，这里有一个很好的例子：https://qa.1r1g.com/sf/ask/38002681/
+(3) 废弃上一条am命令已经打了的patch：git am --abort
+(4) 重新打patch：git am ~/patch-set/*.patchpatch
+```
+
+
+###
+- [x] 查看最近3次提交的文件变更记录
+
+`git log -3 --stat
+`
+- [x] 查看某一次提交的文件中代码变更记录
+
+`git show commitID`
+
+- [x] 回退到某一个版本 彻底回退到某个版本，本地的源码也会变为上一个版本的内容
+`git reset –hard：`
+- [x] 只是去掉某个提交，某个patch
+`git revert commitID`
+
 ### 撤销本地修改
 git checkout -- *
 ### git stash
