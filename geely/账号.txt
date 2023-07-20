@@ -1,0 +1,12 @@
+e-weixing
+17628280321
+d9f7Z29Tw9Xd
+
+adb shell "logcat | grep -E 'VehicleHelper|yhj|ytf|setIntProperty|set/get FunctionValue failed|system_server: oneway function|status is notavailable'" > ytf.txt
+
+VehicleHAL.AutolinkVehicleHal
+
+行车娱乐限制
+
+
+https://vdi.geely.com/logon/LogonPoint/tmindex.html

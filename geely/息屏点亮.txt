@@ -1,0 +1,60 @@
+adb root
+adb shell
+busybox telnet 192.168.118.2
+root
+
+fGh4dalvHp4ubmb2
+susd_invoke 1547 0
+
+adb disable-verity remount权限 预制 屏保
+
+am restart
+Restart the system
+cmd:Failure calling service activity:Broken pipe
+
+
+
+
+启动App
+adb shell am start com.geely.radio/.ui.activity.MainActivity
+adb shell am start com.ecarx.parking/.MainAvmActivity
+
+
+启动launche
+adb shell am start com.android.launcher3/.Launcher 挡位
+
+
+  Integer iGearState = mCarVm.getIntProperty(GlyCarPropertyIds.SENSOR_TYPE_GEAR).getValue();
+  GlyCarPropertyIds.SENSOR_TYPE_GEAR
+
+多媒体2x2widge
+
+
+一、添加文件
+git add 要提交的文件
+
+二、commit提交到本地
+<--   注意：整段复制，需要秀修改    第一行、TeanModule、Subject 、 Solution、 -->
+
+git commit -m '阿拉伯布局适配
+
+[JiraNo]: N/A
+[Project]:FX11_J1
+[TeanModule]:Settings
+[Type]:feat 
+[Subject]
+
+git push geely HEAD:refs/for/fx11_j1_dev
+
+
+am start com.android.settings/com.android.settings.Settings
+
+
+dumpsys activity | grep com.geely.screensaver
+
+
+
+
+
+
+
