@@ -62,7 +62,7 @@ public class RxJava2FileProcessor {
                     }
                 );
 
-        // 等待异步操作完成（仅用于演示）
+        // 等待异步操作完成（用于演示）
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
