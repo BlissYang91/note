@@ -148,6 +148,13 @@ yangtianfudeMacBook-Pro:.ssh yangtianfu$
 复制上述ssh到git中即可。
 
 ```
+
+### 新增ssh
+
+```
+ ssh-keygen -t ed25519 -C "ytfunny@126.com" -f ~/.ssh/note_key
+
+```
 ### 如何解决 failed to push some refs to git
 
     > 刚从GitHub关联克隆下来的项目，push的时候可能会遇到这个问题，这是因为代码未能及时同步，比如远端有readme文件没有同步，执行下边两句即可推送成功
